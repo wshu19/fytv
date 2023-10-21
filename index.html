@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>TubeSim</title>
+	
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <script type="text/javascript" src="./src/functions.js"></script>
+
+    <!--initLocalStroage  must be run as these values are needed for the next scripts-->
+    <script>run.initiateLocalStorage();</script>
+
+
+    <script type="text/javascript" src="./src/data/channels.js" ></script>
+    <script type="text/javascript" src="./src/elements.js" ></script>
+    <script type="text/javascript" src="./src/variables.js" ></script>
+
+    <script type="text/javascript" src="./src/input.js" ></script>
+    <script type="text/javascript" src="./src/inputFunctions.js" defer></script>
+    <script type="text/javascript" src="./src/video.js" ></script>
+</head>
+
+<body style="background-color:black; ">
+
+    <audio id="audioPlayer" autoplay>
+        <source id="soundSrc" src="./assets/sound/staticSound.ogg" type="audio/ogg">
+
+
+    </audio>
+
+    <img id="staticImage" src="./assets/img/static.gif" alt="tv Static"  />
+    <h2 id="channelNameDisplay">Error - Check console log</h2>
+	
+	<!-- Add the new channel container here -->
+
+
+    <div id="chListDisp">
+	    <div id="channelContainer"></div>
+        <ol id="chList"> </ol>
+        <ol id="chList2"> </ol>
+        <p id="controlsScreen">
+| Key          |       Action       |
+| ------------ | ------------------ |
+| + PgUp       |      Channel Up    |
+| - PgDwn      |     Channel Down   |
+| Number 0-9   |   Enter a channel  |
+|       ]      |         Vol+       |
+|       [      |         Vol-       |
+|       P      |     play/pause     |
+|       S      |    skip restart    |
+|       L      |    skip forward    |
+|       J      |    skip backward   |
+|       R      |    skip random     |
+|       G      |   set min length   |
+|      . ,     |    Channel List    |
+|  F5/Insert   |     Reload Page    |
+|     Home     |  Pseudo power down |
+|     End      |Skip episode forever|
+|-----------------------------------|
+|    While channels list is open    |
+|-----------------------------------|
+| Input 99 | Clear Current Ch Mem   |
+| Input 98 | Clear all Ch Memory    |
+| CH+/Ch-  | Adjust Overscan        |
+|Arrow Keys| Hor/Vert Shift         |
+|   Del    | CRT Filter             |
+        </p>
+    </div>
+    <h2 id="chEntry"></h2>
+    <h2 id="volume">Volume []</h2>
+	
+	<!-- Add the new message container here -->
+	<div id="noHistory" class="message">
+	  No video history found.
+	</div>
+	<div id="eraseHistory" class="message">
+	  Video history erased.
+	</div>
+	<div id="skipRan" class="message">
+	  Skipped to random point in video.
+	</div>
+	<div id="skipStart" class="message">
+	  Video restarted.
+	</div>
+	<div id="prevVidtxt" class="message">
+	  Previous video loaded.
+	</div>	
+    <div class="screenElements">
+
+            <div class="scanlines R-bloom "> </div>
+
+            <div class="scanlines G-bloom "> </div>
+
+            <div class="scanlines B-bloom "> </div>
+            
+            <div class="mask"></div>
+  
+    </div>
+
+    <div id="player" class="crt"></div>
+
+
+
+
+    <!--<script type='module' src="./src/index.js"></script>-->
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

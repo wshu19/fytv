@@ -1,0 +1,250 @@
+html{
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+
+
+
+#player{
+    margin-top: 10;
+    width:100vw;
+    height:100vh;
+    z-index: 0;
+}
+
+
+#staticImage{
+    position: absolute;
+    width:100%;
+    height:100%;
+    z-index: 9999;
+}
+#channelNameDisplay{
+ color:rgba(0, 0, 0,1);
+ background-color: rgba(255, 255, 255, 0.2);
+ padding: 3px 5px 3px 5px;
+ font-family: OCR A Std, monospace;
+ position: fixed;
+ top:30px;
+ left:80px;
+ animation: glitch 33ms ease infinite,pulse ease 200ms  infinite;
+ z-index: 9999;
+}
+
+#volume{
+    color:rgba(0, 182, 0,.9);
+    background-color: rgba(100, 98, 98, 0.7);
+    padding: 3px 5px 3px 5px;
+    font-family: OCR A Std, monospace;
+    position: fixed;
+    top:350px;
+    left:130px;
+    animation: glitch 33ms ease infinite,pulse ease 200ms  infinite;
+    z-index: 9999;
+   }
+#chList {
+    font-size: 15px;
+    list-style-type:none;
+    border: 2px solid rgba(34, 33, 33, 0.5); /* Half-transparent border */
+    color: rgba(0, 0, 0, 1); /* Half-transparent text color */
+    background-color: rgba(255, 255, 255, 0.7); /* Half-transparent background color */
+    padding: 3px 5px 3px 5px;
+    font-family: OCR A Std, monospace;
+    position: fixed;
+    top:71px;
+    left:10px;
+    z-index: 9997;
+}
+
+   
+#chList2{
+    font-size: 15px;
+    list-style-type:none;
+    border: 2px solid rgba(34, 33, 33, 0.5); /* Half-transparent border */
+    color: rgba(0, 0, 0, 1); /* Half-transparent text color */
+    background-color: rgba(255, 255, 255, 0.7); /* Half-transparent background color */
+    padding: 3px 5px 3px 5px;
+    font-family: OCR A Std, monospace;
+    position: fixed;
+    top: 71px;
+    left:300px;
+    z-index: 9998;
+    /*animation: glitch 33ms ease infinite,pulse ease 200ms  infinite;*/
+   }
+
+   #chEntry{
+    color:rgba(0, 182, 0,.9);
+    background-color: rgba(100, 98, 98, 0.7);
+    padding: 3px 5px 3px 5px;
+    font-family: OCR A Std, monospace;
+    position: fixed;
+    top:30px;
+    left:80px;
+    animation: glitch 33ms ease infinite,pulse ease 200ms  infinite;
+    z-index: 999999;
+   }
+
+   #menuShortcut{
+       display: block;
+       font-size: 22px;
+    color:rgba(0, 182, 0,.9);
+    background-color: rgb(51, 49, 49);
+    padding: 3px 5px 3px 5px;
+    font-family: OCR A Std, monospace;
+    position: fixed;
+    top:400px;
+    left:190px;
+    z-index: 999999;
+   }
+#controlsScreen{
+ white-space: pre;
+ color:rgba(0, 182, 0,.9);
+ background-color: rgb(37, 36, 36);
+ padding: 3px 5px 3px 5px;
+ font-family: OCR A Std, monospace;
+ font-size: 18px;
+ position: fixed;
+ top:20px;
+ left:120px;
+
+ z-index: 9999999;
+}
+@keyframes glitch {
+    from{
+       
+        filter: blur(1px);
+      
+    }
+    to {
+     
+        filter: blur(0px);
+     
+    
+    }
+    
+}
+
+@keyframes powerOff {
+    
+       0% { transform: scale(1, 1);}
+       10% { transform: scale(.9, .005);}
+       50% { transform: scale(.01, .005);}
+       100% { transform: scale(0, 0);}
+       
+
+}
+
+
+/* ---CRT Scanline effect */
+
+
+.scanlines {
+    pointer-events: none;
+    z-index: 3;
+    opacity: .8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 110%;
+    height: 110%;
+    background-attachment: fixed;
+
+}
+
+.R-bloom {
+  z-index: 4;
+  background: url(../img/R.png);
+  mix-blend-mode: darken;
+}
+
+
+.G-bloom {
+  z-index: 4;
+  background: url(../img/G.png);
+  mix-blend-mode: darken;
+
+}
+
+
+.B-bloom {
+  z-index: 4;
+  background: url(../img/B.png);
+  mix-blend-mode: darken;
+}
+
+.mask {
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    opacity: .6;
+    position: absolute;
+    width: 110%;
+    height: 110%;
+  background: url(../img/mask.png);
+
+ /* mix-blend-mode:exclusion;  */
+
+}
+.crt {
+    filter: brightness(1.1) saturate(140%);
+}
+
+.scanlines, .mask{
+  background-size: 12px 12px;
+}
+
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  color: green;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  z-index: 9999; /* Ensure the message is on top */
+  animation: fadeOut 2s forwards; /* Add a fade-out animation */
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+#channelContainer {
+   position: fixed;
+   bottom: 0; /* Position at the bottom */
+   left: 0; /* Position at the left */
+   z-index: 9999;
+}
+
+.channelItem {
+  width: 100%;
+  font-size: 18px;
+  font-family: OCR A Std, monospace;
+  color: rgba(255, 255, 255, 1);
+}
+
+.channelItem::before {
+  content: ''; /* Add an empty content to make the pseudo-element visible */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.01); /* Adjust the color and opacity as needed */
+  z-index: -1; /* Send the box behind the text */
+}
+
+
+
+
+
+
