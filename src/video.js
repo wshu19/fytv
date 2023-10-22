@@ -496,7 +496,7 @@ function getTrueRandomEpisode(arr) {
 }
 
 
-document.addEventListener('keydown', function(event) {
+/*document.addEventListener('keydown', function(event) {
    let key = event.keyCode || event.which;
    let keycodeDisplay = document.getElementById('keycodeDisplay');
    keycodeDisplay.innerText = 'Key Code: ' + key;
@@ -542,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('skipRan').style.display = 'none';
 		}, 1500); // 500 milliseconds = 0.5 seconds		
     });	
-});
+});*/
 
 
 document.addEventListener('keydown', function(event) {
@@ -573,6 +573,26 @@ document.addEventListener('keydown', function(event) {
 			Input.refresh(); 
 		}
 	  break;
+	case 178: //stop button
+		Input.refresh();
+		break;
+	case 228: //fast forward
+		SkipF();
+		break;
+	case 227: //rewing
+		SkipB();
+		break;
+	case 179: //play pause
+		TogglePlayPause();
+		break;
+	case 0:	
+		randomSkip();
+		document.getElementById('skipRan').style.display = 'block';
+		setTimeout(function() {
+		document.getElementById('skipRan').style.display = 'none';
+		}, 1500); // 500 milliseconds = 0.5 seconds						
+		break;	
+		
   }
 });
 

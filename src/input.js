@@ -96,10 +96,11 @@ let Input = {
                     Element.chNameDisplay().style.display = "none";
                     InputFunction.screenOff();
                     break;
-				case 178:
+				
                 case "Insert":
 				case "k":
 				case "K":
+				case 178:
                     Input.refresh();
                     break;
                 case 'Delete':
@@ -117,31 +118,33 @@ let Input = {
                            
                         }
                     }
-                    break;
-				case 228:	
+                    break;					
                 case 'l':
 				case 'L':
+				case 228:
                     SkipF();
                     break;
-				case 227:	
+					
 				case 'j':
 				case 'J':
+				case 227:
                     SkipB();
                     break;	
 				case 179:
 				case 'p':
 				case 'P':
+				case 179:
                     TogglePlayPause();
-                    break;	
+                    break;						
 				case 'r':
 				case 'R':
+				case 0:	
                     randomSkip();
 					document.getElementById('skipRan').style.display = 'block';
 					setTimeout(function() {
 					document.getElementById('skipRan').style.display = 'none';
 					}, 1500); // 500 milliseconds = 0.5 seconds						
-                    break;	
-				case 0:	
+                    break;					
 				case 's':
 				case 'S':
                     startSkip();
