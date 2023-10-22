@@ -503,6 +503,38 @@ document.addEventListener('keydown', function(event) {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('channelUp').addEventListener('click', function() {
+		if (get.num >= Channels.length - 1) { 
+			get.num = 0; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+			Input.refresh();  
+		} else { 
+			get.num++; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		}
+    });
+
+    document.getElementById('channelDown').addEventListener('click', function() {
+		if (get.num <= 0) { 
+			get.num = Channels.length - 1; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		} else { 
+			get.num--; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		}
+    });
+});
+
+
+
 
 
 
