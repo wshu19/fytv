@@ -496,4 +496,13 @@ function getTrueRandomEpisode(arr) {
 }
 
 
+document.addEventListener('keydown', function(event) {
+   let key = event.keyCode || event.which;
+   let keycodeDisplay = document.getElementById('keycodeDisplay');
+   keycodeDisplay.innerText = 'Key Code: ' + key;
+});
+
+
+
+
 

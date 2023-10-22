@@ -245,6 +245,13 @@ html{
 
 
 
+#keycodeDisplay {
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  z-index: 9999999;
+}
+
 
 
 
