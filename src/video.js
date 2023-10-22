@@ -531,7 +531,51 @@ document.addEventListener('DOMContentLoaded', function() {
 			Input.refresh(); 
 		}
     });
+	
+    document.getElementById('refresh').addEventListener('click', function() {
+		Input.refresh();
+    });	
+	document.getElementById('random').addEventListener('click', function() {
+		randomSkip();
+		document.getElementById('skipRan').style.display = 'block';
+		setTimeout(function() {
+		document.getElementById('skipRan').style.display = 'none';
+		}, 1500); // 500 milliseconds = 0.5 seconds		
+    });	
 });
+
+
+document.addEventListener('keydown', function(event) {
+  switch(event.keyCode) {
+    case 33: // channel up
+		if (get.num >= Channels.length - 1) { 
+			get.num = 0; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+			Input.refresh();  
+		} else { 
+			get.num++; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		}
+      break;
+	case 34: // channel down
+		if (get.num <= 0) { 
+			get.num = Channels.length - 1; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		} else { 
+			get.num--; 
+			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+			Input.refresh(); 
+		}
+	  break;
+  }
+});
+
 
 
 

@@ -254,11 +254,11 @@ html{
 
 #channelUp {
     position: absolute;
-    top: 27%;
-    left: 50%;
+    top: 29%;
+    left: 95%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 300px; /* Adjust the width */
+    width: 100px; /* Adjust the width */
     height: 300px; /* Adjust the height */
     font-size: 80px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
@@ -275,11 +275,11 @@ html{
 
 #channelDown {
     position: absolute;
-    top: 73%;
-    left: 50%;
+    top: 71%;
+    left: 95%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 300px; /* Adjust the width */
+    width: 100px; /* Adjust the width */
     height: 300px; /* Adjust the height */
     font-size: 80px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
@@ -291,6 +291,48 @@ html{
 	background-color: rgba(255, 255, 255, 0.4);
 	color: rgba(0, 0, 0, 0.4);
 	font-size: 120px;
+}
+
+
+#refresh {
+    position: absolute;
+    top: 29%;
+    left: 88.4%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 100px; /* Adjust the width */
+    height: 300px; /* Adjust the height */
+    font-size: 20px; /* Optionally adjust the font size */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#refresh:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 25px;
+}
+
+
+#random {
+    position: absolute;
+    top: 71%;
+    left: 88.4%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 100px; /* Adjust the width */
+    height: 300px; /* Adjust the height */
+    font-size: 20px; /* Optionally adjust the font size */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#random:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 25px;
 }
 
 
