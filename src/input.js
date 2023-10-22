@@ -21,7 +21,7 @@ let Input = {
         ///---Check if input is number or command key----///
         if (isNaN(name)) {
             switch (name) {
-				case 38:
+				case 33:
                 case '+':
                 case 'PageUp':
                     if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
@@ -39,7 +39,7 @@ let Input = {
 						}
                     }
                     break;
-				case 40:	
+				case 34:	
                 case '-':
                 case 'PageDown':
                     if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
@@ -96,7 +96,7 @@ let Input = {
                     Element.chNameDisplay().style.display = "none";
                     InputFunction.screenOff();
                     break;
-				case 39:
+				case 178:
                 case "Insert":
 				case "k":
 				case "K":
@@ -118,17 +118,17 @@ let Input = {
                         }
                     }
                     break;
-				case 417:	
+				case 228:	
                 case 'l':
 				case 'L':
                     SkipF();
                     break;
-				case 412:	
+				case 227:	
 				case 'j':
 				case 'J':
                     SkipB();
                     break;	
-				case 415:
+				case 179:
 				case 'p':
 				case 'P':
                     TogglePlayPause();
@@ -141,6 +141,7 @@ let Input = {
 					document.getElementById('skipRan').style.display = 'none';
 					}, 1500); // 500 milliseconds = 0.5 seconds						
                     break;	
+				case 0:	
 				case 's':
 				case 'S':
                     startSkip();
