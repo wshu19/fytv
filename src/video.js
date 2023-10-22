@@ -236,7 +236,7 @@ function videoStart(event) {
         if (Channels[get.num].randPoint) { 
 		
 		//find a random 10 second segment withing the first 1/8 of the video + 0.5% of the video length
-            get.beginPlace = (rnd * (10/8)) + (vidLength * 0.005); 
+            get.beginPlace = (rnd * (10/16)) + (vidLength * 0.005); 
             /*Then we apply that value to the vidoe player via "seekTo()"*/
             player.seekTo(get.beginPlace, true);
         } else {
@@ -548,30 +548,21 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('keydown', function(event) {
   switch(event.keyCode) {
     case 33: // channel up
-		if (get.num >= Channels.length - 1) { 
-			get.num = 0; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
-			Input.refresh();  
-		} else { 
-			get.num++; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
-		}
+		startSkip();
+		document.getElementById('skipStart').style.display = 'block';
+		setTimeout(function() {
+		document.getElementById('skipStart').style.display = 'none';
+		}, 1500); // 500 milliseconds = 0.5 seconds		
       break;
 	case 34: // channel down
-		if (get.num <= 0) { 
-			get.num = Channels.length - 1; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
-		} else { 
-			get.num--; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
+		if (Element.listDisplayDiv().style.display === "none") {
+			localStorage.setItem('firstTime', 1);
+			Element.chNameDisplay().style.display = "block"; Element.listDisplayDiv().style.display = 'block';
 		}
+		else {
+			Element.chNameDisplay().style.display = "none"; Element.channelEntry().style.display = "none"; Element.listDisplayDiv().style.display = 'none';
+		}
+		Element.controlDisplay().style.display = "none";
 	  break;
 	case 178: //stop button
 		Input.refresh();
@@ -585,7 +576,7 @@ document.addEventListener('keydown', function(event) {
 	case 179: //play pause
 		TogglePlayPause();
 		break;
-	case 0:	
+	case 0:	//record button
 		randomSkip();
 		document.getElementById('skipRan').style.display = 'block';
 		setTimeout(function() {
