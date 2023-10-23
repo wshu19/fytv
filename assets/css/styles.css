@@ -342,9 +342,9 @@ html{
     right: 90%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 100px; /* Adjust the width */
-    height: 100px; /* Adjust the height */
-    font-size: 20px; /* Optionally adjust the font size */
+    width: 50px; /* Adjust the width */
+    height: 50px; /* Adjust the height */
+    font-size: 10px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
 	color: rgba(0, 0, 0, 0.2);
