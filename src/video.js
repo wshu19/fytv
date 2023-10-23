@@ -547,14 +547,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('keydown', function(event) {
   switch(event.keyCode) {
-    case 33: // channel up
+    case 33: // channel up = start skip
 		startSkip();
 		document.getElementById('skipStart').style.display = 'block';
 		setTimeout(function() {
 		document.getElementById('skipStart').style.display = 'none';
 		}, 1500); // 500 milliseconds = 0.5 seconds		
       break;
-	case 34: // channel down
+	case 34: // channel down = display channels
 		if (Element.listDisplayDiv().style.display === "none") {
 			localStorage.setItem('firstTime', 1);
 			Element.chNameDisplay().style.display = "block"; Element.listDisplayDiv().style.display = 'block';
@@ -564,7 +564,7 @@ document.addEventListener('keydown', function(event) {
 		}
 		Element.controlDisplay().style.display = "none";
 	  break;
-	case 178: //stop button
+	case 178: //stop button = refresh
 		Input.refresh();
 		break;
 	case 228: //fast forward
@@ -576,7 +576,7 @@ document.addEventListener('keydown', function(event) {
 	case 179: //play pause
 		TogglePlayPause();
 		break;
-	case 0:	//record button
+	case 0:	//record button = random skip
 		randomSkip();
 		document.getElementById('skipRan').style.display = 'block';
 		setTimeout(function() {
@@ -586,6 +586,75 @@ document.addEventListener('keydown', function(event) {
 		
   }
 });
+
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(event) {
+    const firstTouch = event.touches[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(event) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    const xUp = event.touches[0].clientX;
+    const yUp = event.touches[0].clientY;
+
+    const xDiff = xDown - xUp;
+    const yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            // Swipe left
+			if (get.num <= 0) { 
+				get.num = Channels.length - 1; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+				Input.refresh(); 
+			} else { 
+				get.num--; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+				Input.refresh(); 
+			}			
+        } else {
+			//swipe right
+			if (get.num >= Channels.length - 1) { 
+				get.num = 0; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+				Input.refresh();  
+			} else { 
+				get.num++; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+				Input.refresh(); 
+			}
+        }
+    } else {
+        if (yDiff > 0) {
+            // Swipe up
+			randomSkip();
+			document.getElementById('skipRan').style.display = 'block';
+			setTimeout(function() {
+			document.getElementById('skipRan').style.display = 'none';
+			}, 1500); // 500 milliseconds = 0.5 seconds	
+        } else {
+            // Swipe down
+			Input.refresh();
+        }
+    }
+    xDown = null;
+    yDown = null;
+}
+
 
 
 
