@@ -500,7 +500,10 @@ function getTrueRandomEpisode(arr) {
    let key = event.keyCode || event.which;
    let keycodeDisplay = document.getElementById('keycodeDisplay');
    keycodeDisplay.innerText = 'Key Code: ' + key;
-});
+});*/
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -542,7 +545,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('skipRan').style.display = 'none';
 		}, 1500); // 500 milliseconds = 0.5 seconds		
     });	
-});*/
+});
 
 
 document.addEventListener('keydown', function(event) {
@@ -613,19 +616,6 @@ function handleTouchMove(event) {
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
         if (xDiff > 0) {
             // Swipe left
-			if (get.num <= 0) { 
-				get.num = Channels.length - 1; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-				Input.refresh(); 
-			} else { 
-				get.num--; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-				Input.refresh(); 
-			}			
-        } else {
-			//swipe right
 			if (get.num >= Channels.length - 1) { 
 				get.num = 0; 
 				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
@@ -636,7 +626,20 @@ function handleTouchMove(event) {
 				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
 				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
 				Input.refresh(); 
-			}
+			}			
+        } else {
+			//swipe right
+			if (get.num <= 0) { 
+				get.num = Channels.length - 1; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+				Input.refresh(); 
+			} else { 
+				get.num--; 
+				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+				Input.refresh(); 
+			}				
         }
     } else {
         if (yDiff > 0) {
@@ -654,6 +657,15 @@ function handleTouchMove(event) {
     xDown = null;
     yDown = null;
 }
+
+
+
+
+
+
+
+
+
 
 
 

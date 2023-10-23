@@ -58,3 +58,30 @@ async function app() {
 document.addEventListener('keydown', Input.keypress)
 
 app();
+
+
+window.onload = function() {
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        var mobileElements = document.getElementsByClassName('mobile-only');
+
+        for (var i = 0; i < mobileElements.length; i++) {
+            mobileElements[i].style.display = 'block';
+        }
+
+        var hideButton = document.getElementById('hide');
+        hideButton.addEventListener('click', function() {
+            var buttonsToToggle = document.querySelectorAll('.toggle-buttons');
+            for (var i = 0; i < buttonsToToggle.length; i++) {
+                buttonsToToggle[i].style.display = buttonsToToggle[i].style.display === 'none' ? 'block' : 'none';
+            }
+        });
+    } else {
+        var mobileElements = document.getElementsByClassName('mobile-only');
+
+        for (var i = 0; i < mobileElements.length; i++) {
+            mobileElements[i].style.display = 'none';
+        }
+    }
+}
+
+
