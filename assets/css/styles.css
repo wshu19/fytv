@@ -254,12 +254,12 @@ html{
 
 #channelUp {
     position: absolute;
-    top: 29%;
-    left: 95%;
+    top: 39%;
+    left: 93%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 90px; /* Adjust the width */
-    height: 225px; /* Adjust the height */
+    width: 60px; /* Adjust the width */
+    height: 150px; /* Adjust the height */
     font-size: 60px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
@@ -275,12 +275,12 @@ html{
 
 #channelDown {
     position: absolute;
-    top: 71%;
-    left: 95%;
+    top: 61%;
+    left: 93%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 90px; /* Adjust the width */
-    height: 225px; /* Adjust the height */
+    width: 60px; /* Adjust the width */
+    height: 150px; /* Adjust the height */
     font-size: 60px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
@@ -296,12 +296,12 @@ html{
 
 #refresh {
     position: absolute;
-    top: 29%;
+    top: 39%;
     left: 88.4%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 90px; /* Adjust the width */
-    height: 225px; /* Adjust the height */
+    width: 60px; /* Adjust the width */
+    height: 150px; /* Adjust the height */
     font-size: 15px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
@@ -317,12 +317,12 @@ html{
 
 #random {
     position: absolute;
-    top: 71%;
+    top: 61%;
     left: 88.4%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 90px; /* Adjust the width */
-    height: 225px; /* Adjust the height */
+    width: 60px; /* Adjust the width */
+    height: 150px; /* Adjust the height */
     font-size: 15px; /* Optionally adjust the font size */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
