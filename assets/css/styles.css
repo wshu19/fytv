@@ -371,8 +371,8 @@ html{
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 99999;
-    width: 30vw; /* Adjust the width relative to viewport width */
-    height: 15vh; /* Adjust the height relative to viewport height */
+    width: 75vw; /* Adjust the width relative to viewport width */
+    height: 8vh; /* Adjust the height relative to viewport height */
     background-color: rgba(0, 0, 0, 1);
     border: none;
 }
