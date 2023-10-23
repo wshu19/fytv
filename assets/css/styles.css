@@ -255,15 +255,15 @@ html{
 #channelUp {
     position: absolute;
     top: 39%;
-    left: 93%;
+    left: 85vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 60px; /* Adjust the width */
-    height: 150px; /* Adjust the height */
-    font-size: 60px; /* Optionally adjust the font size */
-	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
-	color: rgba(0, 0, 0, 0.2);
+    width: 5vw;
+    height: 15vh;
+    font-size: 3vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: rgba(0, 0, 0, 0.2);
 }
 
 #channelUp:hover {
@@ -275,16 +275,16 @@ html{
 
 #channelDown {
     position: absolute;
-    top: 61%;
-    left: 93%;
+    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 85vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 60px; /* Adjust the width */
-    height: 150px; /* Adjust the height */
-    font-size: 60px; /* Optionally adjust the font size */
-	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
-	color: rgba(0, 0, 0, 0.2);
+    width: 5vw;
+    height: 15vh;
+    font-size: 3vw;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: rgba(0, 0, 0, 0.2);
 }
 
 #channelDown:hover {
@@ -297,12 +297,12 @@ html{
 #refresh {
     position: absolute;
     top: 39%;
-    left: 88.4%;
+    left: 80vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 60px; /* Adjust the width */
-    height: 150px; /* Adjust the height */
-    font-size: 15px; /* Optionally adjust the font size */
+	width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
 	color: rgba(0, 0, 0, 0.2);
@@ -317,13 +317,13 @@ html{
 
 #random {
     position: absolute;
-    top: 61%;
-    left: 88.4%;
+    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 80vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 60px; /* Adjust the width */
-    height: 150px; /* Adjust the height */
-    font-size: 15px; /* Optionally adjust the font size */
+    width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
 	color: rgba(0, 0, 0, 0.2);
@@ -342,9 +342,9 @@ html{
     right: 90%;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 50px; /* Adjust the width */
-    height: 50px; /* Adjust the height */
-    font-size: 10px; /* Optionally adjust the font size */
+    width: 4vw; /* Adjust the width relative to viewport width */
+    height: 9vh; /* Adjust the height relative to viewport height */
+    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: none;
 	color: rgba(0, 0, 0, 0.2);
