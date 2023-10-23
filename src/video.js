@@ -135,7 +135,9 @@ function onPlayerStateChange(event) {
 
 
 function videoStart(event) {	
+
 	player.setOption('captions', 'fontSize', -1);
+	
 	
 	if (player.getPlaylistIndex() < 0)
 	{

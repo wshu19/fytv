@@ -350,6 +350,34 @@ html{
 	color: rgba(0, 0, 0, 0.2);
 }
 
+#Subs {
+    position: absolute;
+	top: calc(50% + 15vh); /* Adjust based on the height of the first element */
+    right: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 4vw; /* Adjust the width relative to viewport width */
+    height: 9vh; /* Adjust the height relative to viewport height */
+    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	color: rgba(0, 0, 0, 0.2);
+}
+
+
+#subCover {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 99999;
+    width: 30vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+}
+
+
 
 
 

@@ -60,7 +60,16 @@ document.addEventListener('keydown', Input.keypress)
 app();
 
 
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the visibility state is stored in local storage
+    var visibilityState = localStorage.getItem('visibilityState');
+    if (visibilityState) {
+        var buttonsToToggle = document.querySelectorAll('.toggle-buttons');
+        for (var i = 0; i < buttonsToToggle.length; i++) {
+            buttonsToToggle[i].style.display = visibilityState === 'visible' ? 'block' : 'none';
+        }
+    }
+
     if (/Mobi|Android/i.test(navigator.userAgent)) {
         var mobileElements = document.getElementsByClassName('mobile-only');
 
@@ -74,6 +83,10 @@ window.onload = function() {
             for (var i = 0; i < buttonsToToggle.length; i++) {
                 buttonsToToggle[i].style.display = buttonsToToggle[i].style.display === 'none' ? 'block' : 'none';
             }
+
+            // Store the visibility state in local storage
+            var newState = buttonsToToggle[0].style.display === 'none' ? 'hidden' : 'visible';
+            localStorage.setItem('visibilityState', newState);
         });
     } else {
         var mobileElements = document.getElementsByClassName('mobile-only');
@@ -82,6 +95,33 @@ window.onload = function() {
             mobileElements[i].style.display = 'none';
         }
     }
-}
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var subCover = document.getElementById('subCover');
+    var subsButton = document.getElementById('Subs');
+
+    // Check if the visibility is stored in local storage
+    var visibility = localStorage.getItem('subCoverVisibility');
+
+    if (visibility === 'hidden') {
+        subCover.style.display = 'none';
+    }
+
+    // Add click event listener to the 'Subs' button
+    subsButton.addEventListener('click', function() {
+        if (subCover.style.display === 'none' || subCover.style.display === '') {
+            subCover.style.display = 'block';
+            localStorage.setItem('subCoverVisibility', 'visible');
+        } else {
+            subCover.style.display = 'none';
+            localStorage.setItem('subCoverVisibility', 'hidden');
+        }
+    });
+});
+
 
 
