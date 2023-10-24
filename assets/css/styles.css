@@ -252,25 +252,70 @@ html{
   z-index: 9999999;
 }
 
+/* CONTROL BUTTONS CONTROL BUTTONS CONTROL BUTTONS CONTROL BUTTONS CONTROL BUTTONS CONTROL BUTTONS */
 
-
-#channelUp10 {
+#Dbu {
     position: absolute;
-    top: 39%;
-    left: 90vw;
+    /*top: calc(39% + 15vh); Adjust based on the height of the first element */
+	top: 39%;
+    left: 70vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
     width: 5vw;
     height: 15vh;
-    font-size: 1.5vw;
+    font-size: 2vw;
     background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
     color: rgba(0, 0, 0, 0.2);
 }
 
-#channelUp10:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
+#Dbu:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+#Bck {
+    position: absolute;
+    /*top: calc(39% + 15vh); Adjust based on the height of the first element */
+	top: 39%;
+    left: 75vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw;
+    height: 15vh;
+    font-size: 2vw;
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#Bck:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+
+
+#channelDown {
+    position: absolute;
+    /*top: calc(39% + 15vh); Adjust based on the height of the first element */
+	top: 39%;
+    left: 80vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw;
+    height: 15vh;
+    font-size: 2vw;
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#channelDown:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 2.5vw;
 }
 
@@ -282,82 +327,80 @@ html{
     z-index: 99999;
     width: 5vw;
     height: 15vh;
-    font-size: 3vw;
+    font-size: 2vw;
     background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
     color: rgba(0, 0, 0, 0.2);
 }
 
 #channelUp:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
-	font-size: 4vw;
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
 }
 
-#channelRandom {
+#channelUp10 {
     position: absolute;
-    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    top: 39%;
     left: 90vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
     width: 5vw;
     height: 15vh;
-    font-size: 1.5vw;
+    font-size: 2vw;
     background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
     color: rgba(0, 0, 0, 0.2);
 }
 
-#channelRandom:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
+#channelUp10:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 2.5vw;
 }
 
 
-#channelDown {
+#Rwd {
     position: absolute;
     top: calc(39% + 15vh); /* Adjust based on the height of the first element */
-    left: 85vw;
+    left: 70vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
-    width: 5vw;
-    height: 15vh;
-    font-size: 3vw;
-    background-color: rgba(255, 255, 255, 0.2);
-	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
-    color: rgba(0, 0, 0, 0.2);
-}
-
-#channelDown:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
-	font-size: 4vw;
-}
-
-
-#refresh {
-    position: absolute;
-    top: 39%;
-    left: 80vw;
-    transform: translate(-50%, -50%);
-    z-index: 99999;
-	width: 5vw; /* Adjust the width relative to viewport width */
+    width: 5vw; /* Adjust the width relative to viewport width */
     height: 15vh; /* Adjust the height relative to viewport height */
-    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
 }
 
-#refresh:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
-	font-size: 18px;
+#Rwd:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
 }
 
+#Fwd {
+    position: absolute;
+    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 75vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+	color: rgba(0, 0, 0, 0.2);
+}
 
-#random {
+#Fwd:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+#rdmTime {
     position: absolute;
     top: calc(39% + 15vh); /* Adjust based on the height of the first element */
     left: 80vw;
@@ -365,16 +408,57 @@ html{
     z-index: 99999;
     width: 5vw; /* Adjust the width relative to viewport width */
     height: 15vh; /* Adjust the height relative to viewport height */
-    font-size: 3vw; /* Optionally adjust the font size relative to viewport width */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
 	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
 }
 
-#random:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
-	font-size: 4vw;
+#rdmTime:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+#rdmVid {
+    position: absolute;
+	top: calc(39% + 15vh); 
+    left: 85vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+	width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#rdmVid:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+
+#rdmChaine {
+    position: absolute;
+    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 90vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw;
+    height: 15vh;
+    font-size: 2vw;
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#rdmChaine:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
 }
 
 
@@ -393,8 +477,8 @@ html{
 }
 
 #Browse:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 1vw;
 }
 
@@ -413,8 +497,8 @@ html{
 }
 
 #hide:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 1vw;
 }
 
@@ -433,8 +517,8 @@ html{
 }
 
 #Subs:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-	color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
 	font-size: 1vw;
 }
 

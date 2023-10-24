@@ -32,7 +32,7 @@ let Input = {
 							get.num++; 
 						}
 						localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-						localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+						localStorage.setItem('maximumVideoLength', JSON.stringify(999999999)); 
 						Input.refresh(); 
                     //}
                     break;
@@ -47,7 +47,7 @@ let Input = {
 							get.num--; 
 						}
 						localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-						localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+						localStorage.setItem('maximumVideoLength', JSON.stringify(999999999));
 						Input.refresh();
                    // }
                     break;

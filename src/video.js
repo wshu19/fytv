@@ -139,17 +139,7 @@ function videoStart(event) {
 	player.setOption('captions', 'fontSize', -1);
 	
 	
-	if (player.getPlaylistIndex() < 0)
-	{
-		
-	} else {
-		if (prevVid === '1') {
 
-		console.log('videos not saved because going through previous videos');
-		} else { 
-			savePreviousVideos();
-		}
-	}
 	
 	const currentVideoDuration = player.getDuration();
 	
@@ -211,6 +201,10 @@ function videoStart(event) {
 
 
     }
+	
+
+	
+	
 	var playlist = event.target.getPlaylist();
 	console.log('playlist length = ',playlist.length); 
 
@@ -247,6 +241,18 @@ function videoStart(event) {
             /*Then we apply that value to the vidoe player via "seekTo()"*/
             player.seekTo(get.beginPlace, true);
         }
+		
+		
+		if (player.getPlaylistIndex() < 0){
+			
+		} else {
+			if (prevVid === '1') {
+
+			console.log('videos not saved because going through previous videos');
+			} else { 
+				savePreviousVideos();
+			}
+		}
         
 
 };
@@ -268,7 +274,7 @@ function stateChange() {
         for (let i = 1; i < get.pageData.length; i++) {
             //if the ch has been generated before, make new number and start over (i=0)
             if (get.pageData[i] === player.getPlaylistIndex()) {
-                Input.refresh();
+               Input.refresh();
             }
         }
 
@@ -276,6 +282,7 @@ function stateChange() {
         //clearTimeout(j);
         // }, 500);
     }
+	
 	    
 }
 
@@ -504,21 +511,29 @@ function getTrueRandomEpisode(arr) {
    keycodeDisplay.innerText = 'Key Code: ' + key;
 });*/
 
-
+		
 
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('channelUp').addEventListener('click', function() {
-		if (get.num >= Channels.length - 1) { 
-			get.num = 0; 
-		} else { 
-			get.num++; 
-		}
-		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-		localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
-		Input.refresh(); 
-    });
+    document.getElementById('Dbu').addEventListener('click', function() {
+		startSkip();
+		document.getElementById('skipStart').style.display = 'block';
+		setTimeout(function() {
+		document.getElementById('skipStart').style.display = 'none';
+		}, 1500); // 500 milliseconds = 0.5 seconds
+    });	
+	document.getElementById('Bck').addEventListener('click', function() {
+		if (previousVideos.length > 0) {
+			localStorage.setItem(`prevVid`, 1);					
+			Input.refresh();
+		} else {
+			document.getElementById('noHistory').style.display = 'block';
+			setTimeout(function() {
+			  document.getElementById('noHistory').style.display = 'none';
+			}, 1500); // 500 milliseconds = 0.5 seconds
+		}	
+    });	
     document.getElementById('channelDown').addEventListener('click', function() {
 		if (get.num <= 0) { 
 			get.num = Channels.length - 1; 
@@ -529,17 +544,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
 		Input.refresh(); 
     });
-	
-    document.getElementById('refresh').addEventListener('click', function() {
-		Input.refresh();
-    });	
-	document.getElementById('random').addEventListener('click', function() {
-		randomSkip();
-		document.getElementById('skipRan').style.display = 'block';
-		setTimeout(function() {
-		document.getElementById('skipRan').style.display = 'none';
-		}, 1500); // 500 milliseconds = 0.5 seconds		
-    });	
+    document.getElementById('channelUp').addEventListener('click', function() {
+		if (get.num >= Channels.length - 1) { 
+			get.num = 0; 
+		} else { 
+			get.num++; 
+		}
+		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+		Input.refresh(); 
+    });
 	document.getElementById('channelUp10').addEventListener('click', function() {
 		const maxNum = Channels.length - 1;
 		get.num = parseInt(get.num);
@@ -553,13 +567,30 @@ document.addEventListener('DOMContentLoaded', function() {
 			console.log("else");
 		}
 		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-		localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(999999999)); 
 		Input.refresh();
     });
-    document.getElementById('channelRandom').addEventListener('click', function() {
+    document.getElementById('Rwd').addEventListener('click', function() {
+		SkipB();
+    });		
+    document.getElementById('Fwd').addEventListener('click', function() {
+		SkipF();
+    });		
+	document.getElementById('rdmTime').addEventListener('click', function() {
+		randomSkip();
+		document.getElementById('skipRan').style.display = 'block';
+		setTimeout(function() {
+		document.getElementById('skipRan').style.display = 'none';
+		}, 1500); // 500 milliseconds = 0.5 seconds		
+    });			
+    document.getElementById('rdmVid').addEventListener('click', function() {
+		Input.refresh();
+    });	
+
+    document.getElementById('rdmChaine').addEventListener('click', function() {
 		get.num = Math.floor(Math.random() * (Channels.length-1));
 		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-		localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+		localStorage.setItem('maximumVideoLength', JSON.stringify(999999999));
 		Input.refresh(); 
     });
 	

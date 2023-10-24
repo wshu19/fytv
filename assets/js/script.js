@@ -62,13 +62,20 @@ app();
 
 document.addEventListener('DOMContentLoaded', function() {
 	const buttonsToToggle = [
-		document.getElementById('channelUp'),
+		document.getElementById('Dbu'),	
+		document.getElementById('Bck'),			
 		document.getElementById('channelDown'),
-		document.getElementById('refresh'),
-		document.getElementById('random'),
-		document.getElementById('Subs'),
+		document.getElementById('channelUp'),
 		document.getElementById('channelUp10'),
-		document.getElementById('channelRandom'),
+		document.getElementById('Rwd'),
+		document.getElementById('Fwd'),
+		document.getElementById('rdmTime'),
+		document.getElementById('rdmVid'),
+		document.getElementById('rdmChaine'),
+		
+		document.getElementById('Subs'),
+		
+		
 		document.getElementById('Browse')
 	];
 
