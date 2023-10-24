@@ -24,38 +24,32 @@ let Input = {
 				case 33:
                 case '+':
                 case 'PageUp':
-                    if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
-					} else {
-                        if (get.num >= Channels.length - 1) { 
+                   // if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
+					//} else {
+						if (get.num >= Channels.length - 1) { 
 							get.num = 0; 
-							localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-							localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
-							Input.refresh();  
 						} else { 
 							get.num++; 
-							localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-							localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-							Input.refresh(); 
 						}
-                    }
+						localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+						localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+						Input.refresh(); 
+                    //}
                     break;
 				case 34:	
                 case '-':
                 case 'PageDown':
-                    if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
-					} else {
-                        if (get.num <= 0) { 
+                   // if (Element.listDisplayDiv().style.display == "block") { InputFunction.overscan(name); 
+					//} else {
+						if (get.num <= 0) { 
 							get.num = Channels.length - 1; 
-							localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-							localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-							Input.refresh(); 
 						} else { 
 							get.num--; 
-							localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-							localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-							Input.refresh(); 
 						}
-                    }
+						localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+						localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+						Input.refresh();
+                   // }
                     break;
                 case '.':
                 case ',':

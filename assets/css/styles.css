@@ -252,6 +252,28 @@ html{
   z-index: 9999999;
 }
 
+
+
+#channelUp10 {
+    position: absolute;
+    top: 39%;
+    left: 90vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw;
+    height: 15vh;
+    font-size: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#channelUp10:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 2.5vw;
+}
+
 #channelUp {
     position: absolute;
     top: 39%;
@@ -262,14 +284,34 @@ html{
     height: 15vh;
     font-size: 3vw;
     background-color: rgba(255, 255, 255, 0.2);
-    border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
     color: rgba(0, 0, 0, 0.2);
 }
 
 #channelUp:hover {
 	background-color: rgba(255, 255, 255, 0.4);
 	color: rgba(0, 0, 0, 0.4);
-	font-size: 90px;
+	font-size: 4vw;
+}
+
+#channelRandom {
+    position: absolute;
+    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 90vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw;
+    height: 15vh;
+    font-size: 1.5vw;
+    background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+    color: rgba(0, 0, 0, 0.2);
+}
+
+#channelRandom:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 2.5vw;
 }
 
 
@@ -283,14 +325,14 @@ html{
     height: 15vh;
     font-size: 3vw;
     background-color: rgba(255, 255, 255, 0.2);
-    border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
     color: rgba(0, 0, 0, 0.2);
 }
 
 #channelDown:hover {
 	background-color: rgba(255, 255, 255, 0.4);
 	color: rgba(0, 0, 0, 0.4);
-	font-size: 90px;
+	font-size: 4vw;
 }
 
 
@@ -304,7 +346,7 @@ html{
     height: 15vh; /* Adjust the height relative to viewport height */
     font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
 }
 
@@ -323,18 +365,38 @@ html{
     z-index: 99999;
     width: 5vw; /* Adjust the width relative to viewport width */
     height: 15vh; /* Adjust the height relative to viewport height */
-    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
+    font-size: 3vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
 }
 
 #random:hover {
 	background-color: rgba(255, 255, 255, 0.4);
 	color: rgba(0, 0, 0, 0.4);
-	font-size: 18px;
+	font-size: 4vw;
 }
 
+
+#Browse {
+    position: absolute;
+	top: calc(50% - 15vh); /* Adjust based on the height of the first element */
+    right: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 4vw; /* Adjust the width relative to viewport width */
+    height: 9vh; /* Adjust the height relative to viewport height */
+    font-size: 0.8vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#Browse:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 1vw;
+}
 
 #hide {
     position: absolute;
@@ -344,10 +406,16 @@ html{
     z-index: 99999;
     width: 4vw; /* Adjust the width relative to viewport width */
     height: 9vh; /* Adjust the height relative to viewport height */
-    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
+    font-size: 0.8vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
+}
+
+#hide:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 1vw;
 }
 
 #Subs {
@@ -358,10 +426,16 @@ html{
     z-index: 99999;
     width: 4vw; /* Adjust the width relative to viewport width */
     height: 9vh; /* Adjust the height relative to viewport height */
-    font-size: 1vw; /* Optionally adjust the font size relative to viewport width */
+    font-size: 0.8vw; /* Optionally adjust the font size relative to viewport width */
 	background-color: rgba(255, 255, 255, 0.2);
-	border: none;
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
 	color: rgba(0, 0, 0, 0.2);
+}
+
+#Subs:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+	color: rgba(0, 0, 0, 0.4);
+	font-size: 1vw;
 }
 
 
@@ -374,7 +448,19 @@ html{
     width: 75vw; /* Adjust the width relative to viewport width */
     height: 8vh; /* Adjust the height relative to viewport height */
     background-color: rgba(0, 0, 0, 1);
-    border: none;
+	border: 1px solid rgba(255, 255, 255, 0.1); /* Added border property with rgba color */
+}
+
+#subCover2 {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    z-index: 99999;
+    width: 75vw; /* Adjust the width relative to viewport width */
+    height: 8vh; /* Adjust the height relative to viewport height */
+    background-color: rgba(0, 0, 0, 1);
+	border: 1px solid rgba(255, 255, 255, 0.1); /* Added border property with rgba color */
 }
 
 

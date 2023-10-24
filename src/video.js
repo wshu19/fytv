@@ -512,29 +512,22 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('channelUp').addEventListener('click', function() {
 		if (get.num >= Channels.length - 1) { 
 			get.num = 0; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
-			Input.refresh();  
 		} else { 
 			get.num++; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
 		}
+		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+		Input.refresh(); 
     });
-
     document.getElementById('channelDown').addEventListener('click', function() {
 		if (get.num <= 0) { 
 			get.num = Channels.length - 1; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
 		} else { 
 			get.num--; 
-			localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-			localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-			Input.refresh(); 
 		}
+		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+		Input.refresh(); 
     });
 	
     document.getElementById('refresh').addEventListener('click', function() {
@@ -547,6 +540,41 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('skipRan').style.display = 'none';
 		}, 1500); // 500 milliseconds = 0.5 seconds		
     });	
+	document.getElementById('channelUp10').addEventListener('click', function() {
+		const maxNum = Channels.length - 1;
+		get.num = parseInt(get.num);
+		console.log("get.num value = ",get.num, "  | max num value = ",maxNum);
+
+		if (get.num + 10 >= maxNum) { 
+			get.num = (get.num + 10) - (maxNum+1);
+			console.log("if");
+		} else { 
+			get.num += 10; 
+			console.log("else");
+		}
+		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
+		Input.refresh();
+    });
+    document.getElementById('channelRandom').addEventListener('click', function() {
+		get.num = Math.floor(Math.random() * (Channels.length-1));
+		localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+		localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
+		Input.refresh(); 
+    });
+	
+	 document.getElementById('Browse').addEventListener('click', function() {
+		window.addEventListener('resize', adjustChannelsLayout);
+		adjustChannelsLayout();
+		if (Element.listDisplayDiv().style.display === "none") {
+			localStorage.setItem('firstTime', 1);
+			Element.chNameDisplay().style.display = "block"; Element.listDisplayDiv().style.display = 'block';
+		}
+		else {
+			Element.chNameDisplay().style.display = "none"; Element.channelEntry().style.display = "none"; Element.listDisplayDiv().style.display = 'none';
+		}
+		Element.controlDisplay().style.display = "none";
+    });
 });
 
 
@@ -591,88 +619,3 @@ document.addEventListener('keydown', function(event) {
 		
   }
 });
-
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-
-let xDown = null;
-let yDown = null;
-
-function handleTouchStart(event) {
-    const firstTouch = event.touches[0];
-    xDown = firstTouch.clientX;
-    yDown = firstTouch.clientY;
-}
-
-function handleTouchMove(event) {
-    if (!xDown || !yDown) {
-        return;
-    }
-
-    const xUp = event.touches[0].clientX;
-    const yUp = event.touches[0].clientY;
-
-    const xDiff = xDown - xUp;
-    const yDiff = yDown - yUp;
-
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        if (xDiff > 0) {
-            // Swipe left
-			if (get.num >= Channels.length - 1) { 
-				get.num = 0; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400)); 
-				Input.refresh();  
-			} else { 
-				get.num++; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-				Input.refresh(); 
-			}			
-        } else {
-			//swipe right
-			if (get.num <= 0) { 
-				get.num = Channels.length - 1; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-				Input.refresh(); 
-			} else { 
-				get.num--; 
-				localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
-				localStorage.setItem('maximumVideoLength', JSON.stringify(86400));
-				Input.refresh(); 
-			}				
-        }
-    } else {
-        if (yDiff > 0) {
-            // Swipe up
-			randomSkip();
-			document.getElementById('skipRan').style.display = 'block';
-			setTimeout(function() {
-			document.getElementById('skipRan').style.display = 'none';
-			}, 1500); // 500 milliseconds = 0.5 seconds	
-        } else {
-            // Swipe down
-			Input.refresh();
-        }
-    }
-    xDown = null;
-    yDown = null;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

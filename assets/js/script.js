@@ -61,67 +61,72 @@ app();
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the visibility state is stored in local storage
-    var visibilityState = localStorage.getItem('visibilityState');
-    if (visibilityState) {
-        var buttonsToToggle = document.querySelectorAll('.toggle-buttons');
-        for (var i = 0; i < buttonsToToggle.length; i++) {
-            buttonsToToggle[i].style.display = visibilityState === 'visible' ? 'block' : 'none';
-        }
-    }
+	const buttonsToToggle = [
+		document.getElementById('channelUp'),
+		document.getElementById('channelDown'),
+		document.getElementById('refresh'),
+		document.getElementById('random'),
+		document.getElementById('Subs'),
+		document.getElementById('channelUp10'),
+		document.getElementById('channelRandom'),
+		document.getElementById('Browse')
+	];
 
-    if (/Mobi|Android/i.test(navigator.userAgent)) {
-        var mobileElements = document.getElementsByClassName('mobile-only');
 
-        for (var i = 0; i < mobileElements.length; i++) {
-            mobileElements[i].style.display = 'block';
-        }
+    const hideButton = document.getElementById('hide');
+    const subsButton = document.getElementById('Subs');
+    const subCoverButton = document.getElementById('subCover');
+    const subCover2Button = document.getElementById('subCover2');
 
-        var hideButton = document.getElementById('hide');
-        hideButton.addEventListener('click', function() {
-            var buttonsToToggle = document.querySelectorAll('.toggle-buttons');
-            for (var i = 0; i < buttonsToToggle.length; i++) {
-                buttonsToToggle[i].style.display = buttonsToToggle[i].style.display === 'none' ? 'block' : 'none';
-            }
+    let subCoverState = 0; // 0: subCover visible, 1: subCover and subCover2 visible, 2: both invisible
 
-            // Store the visibility state in local storage
-            var newState = buttonsToToggle[0].style.display === 'none' ? 'hidden' : 'visible';
-            localStorage.setItem('visibilityState', newState);
+    hideButton.addEventListener('click', function() {
+        buttonsToToggle.forEach(button => {
+            button.style.display = (button.style.display === 'none') ? 'block' : 'none';
         });
-    } else {
-        var mobileElements = document.getElementsByClassName('mobile-only');
 
-        for (var i = 0; i < mobileElements.length; i++) {
-            mobileElements[i].style.display = 'none';
-        }
-    }
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var subCover = document.getElementById('subCover');
-    var subsButton = document.getElementById('Subs');
-
-    // Check if the visibility is stored in local storage
-    var visibility = localStorage.getItem('subCoverVisibility');
-
-    if (visibility === 'hidden') {
-        subCover.style.display = 'none';
-    }
-
-    // Add click event listener to the 'Subs' button
-    subsButton.addEventListener('click', function() {
-        if (subCover.style.display === 'none' || subCover.style.display === '') {
-            subCover.style.display = 'block';
-            localStorage.setItem('subCoverVisibility', 'visible');
-        } else {
-            subCover.style.display = 'none';
-            localStorage.setItem('subCoverVisibility', 'hidden');
-        }
+        localStorage.setItem('buttonsHidden', JSON.stringify(buttonsToToggle.some(button => button.style.display === 'none')));
     });
+
+    subsButton.addEventListener('click', function() {
+        subCoverState = (subCoverState + 1) % 3; // Cycle through 0, 1, 2
+
+        if (subCoverState === 0) {
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'none';
+        } else if (subCoverState === 1) {
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'block';
+        } else if (subCoverState === 2) {
+            subCoverButton.style.display = 'none';
+            subCover2Button.style.display = 'none';
+        }
+
+        localStorage.setItem('subCoverState', subCoverState);
+    });
+
+    // Check local storage on page load
+    const buttonsHidden = JSON.parse(localStorage.getItem('buttonsHidden'));
+    if (buttonsHidden) {
+        buttonsToToggle.forEach(button => {
+            button.style.display = 'none';
+        });
+    }
+
+    const storedSubCoverState = JSON.parse(localStorage.getItem('subCoverState'));
+    if (storedSubCoverState === 0) {
+        subCoverButton.style.display = 'block';
+        subCover2Button.style.display = 'none';
+    } else if (storedSubCoverState === 1) {
+        subCoverButton.style.display = 'block';
+        subCover2Button.style.display = 'block';
+    } else if (storedSubCoverState === 2) {
+        subCoverButton.style.display = 'none';
+        subCover2Button.style.display = 'none';
+    }
 });
+
+
 
 
 
