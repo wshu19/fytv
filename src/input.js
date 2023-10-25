@@ -116,13 +116,13 @@ let Input = {
                 case 'l':
 				case 'L':
 				case 228:
-                    SkipF();
+                    SkipF(15);
                     break;
 					
 				case 'j':
 				case 'J':
 				case 227:
-                    SkipB();
+                    SkipB(3);
                     break;	
 				case 179:
 				case 'p':

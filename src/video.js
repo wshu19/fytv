@@ -300,12 +300,12 @@ function startSkip() {
 	player.seekTo(0, true);
 }
 
-function SkipF() {
-	player.seekTo(player.getCurrentTime() + 15, true);
+function SkipF(time) {
+	player.seekTo(player.getCurrentTime() + time, true);
 }
 
-function SkipB() {
-	player.seekTo(player.getCurrentTime() - 3, true);
+function SkipB(time) {
+	player.seekTo(player.getCurrentTime() - time, true);
 }
 
 function TogglePlayPause() {	
@@ -514,6 +514,10 @@ function getTrueRandomEpisode(arr) {
 		
 
 
+//ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS 
+//ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS 
+//ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS 
+//ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS ON SCREEN BUTTONS 
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('Dbu').addEventListener('click', function() {
@@ -571,11 +575,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		Input.refresh();
     });
     document.getElementById('Rwd').addEventListener('click', function() {
-		SkipB();
+		SkipB(3);
     });		
+	document.getElementById('Rwd10').addEventListener('click', function() {
+		SkipB(120);
+    });	
     document.getElementById('Fwd').addEventListener('click', function() {
-		SkipF();
+		SkipF(15);
     });		
+	document.getElementById('Fwd10').addEventListener('click', function() {
+		SkipF(600);
+    });	
 	document.getElementById('rdmTime').addEventListener('click', function() {
 		randomSkip();
 		document.getElementById('skipRan').style.display = 'block';
@@ -632,10 +642,10 @@ document.addEventListener('keydown', function(event) {
 		Input.refresh();
 		break;
 	case 228: //fast forward
-		SkipF();
+		SkipF(15);
 		break;
 	case 227: //rewing
-		SkipB();
+		SkipB(3);
 		break;
 	case 179: //play pause
 		TogglePlayPause();

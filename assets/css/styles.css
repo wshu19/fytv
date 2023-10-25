@@ -257,8 +257,8 @@ html{
 #Dbu {
     position: absolute;
     /*top: calc(39% + 15vh); Adjust based on the height of the first element */
-	top: 39%;
-    left: 70vw;
+	top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 75vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
     width: 5vw;
@@ -362,8 +362,8 @@ html{
 
 #Rwd {
     position: absolute;
-    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
-    left: 70vw;
+	top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+    left: 65vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
     width: 5vw; /* Adjust the width relative to viewport width */
@@ -380,10 +380,31 @@ html{
 	font-size: 2.5vw;
 }
 
+#Rwd10 {
+    position: absolute;
+    top: 39%; /* Adjust based on the height of the first element */
+    left: 65vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#Rwd10:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+
 #Fwd {
     position: absolute;
-    top: calc(39% + 15vh); /* Adjust based on the height of the first element */
-    left: 75vw;
+	top: calc(39% + 15vh); /* Adjust based on the height of the first element */
+	left: 70vw;
     transform: translate(-50%, -50%);
     z-index: 99999;
     width: 5vw; /* Adjust the width relative to viewport width */
@@ -395,6 +416,27 @@ html{
 }
 
 #Fwd:hover {
+	background-color: rgba(255, 255, 255, 0.8);
+	color: rgba(0, 0, 0, 0.8);
+	font-size: 2.5vw;
+}
+
+
+#Fwd10 {
+    position: absolute;
+	top: 39%;
+    left: 70vw;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    width: 5vw; /* Adjust the width relative to viewport width */
+    height: 15vh; /* Adjust the height relative to viewport height */
+    font-size: 2vw; /* Optionally adjust the font size relative to viewport width */
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.2); /* Added border property with rgba color */
+	color: rgba(0, 0, 0, 0.2);
+}
+
+#Fwd10:hover {
 	background-color: rgba(255, 255, 255, 0.8);
 	color: rgba(0, 0, 0, 0.8);
 	font-size: 2.5vw;
