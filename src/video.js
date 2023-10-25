@@ -76,6 +76,8 @@ function onYouTubeIframeAPIReady() {
 
 
                 videoStart(event);
+				
+				setInterval(updateTimeRemaining, 1000);
             },
 
             'onStateChange': stateChange,
@@ -660,3 +662,20 @@ document.addEventListener('keydown', function(event) {
 		
   }
 });
+
+
+
+function updateTimeRemaining() {
+  var currentTime = player.getCurrentTime();
+  var duration = player.getDuration();
+  var timeRemaining = duration - currentTime;
+
+  var timeRemainingElement = document.getElementById('time-remaining');
+  timeRemainingElement.innerText = formatTime(timeRemaining);
+}
+
+function formatTime(time) {
+  var minutes = Math.floor(time / 60);
+  var seconds = Math.floor(time % 60);
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+}
