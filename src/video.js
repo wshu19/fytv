@@ -117,18 +117,47 @@ function checkVideoTime() {
 	window.focus();
   let currentTime = player.getCurrentTime();
   let duration = player.getDuration();
+  let timevideohasbeenon = currentTime - get.beginPlace;
+  tasteTVClicked = JSON.parse(localStorage.getItem('tasteTVClicked'));
+  tasteChaineClicked = JSON.parse(localStorage.getItem('tasteChaineClicked'));
+  let tasteTime = 60;
+  
+  //console.log("timevideohasbeenon = ",timevideohasbeenon)
+  
+  if (tasteChaineClicked) {
+    if (timevideohasbeenon >= tasteTime) {
+    location.reload();
+	}
+  
+  }
+  
+  if (tasteTVClicked) { 
+    if (timevideohasbeenon >= tasteTime || duration - currentTime <= 2) {
+    get.num = Math.floor(Math.random() * (Channels.length-1));
+	localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
+	localStorage.setItem('maximumVideoLength', JSON.stringify(999999999));
+	Input.refresh(); 
+	}  
+  }
 
   if (duration - currentTime <= 2) {
     location.reload();
   }
 }
 
+
+
+
+
+
 function onPlayerStateChange(event) {
 	window.focus();
   if (event.data == YT.PlayerState.PLAYING) {
-    setInterval(checkVideoTime, 500); // Check every second
+    setInterval(checkVideoTime, 500); // Check every half second
   }
 }
+
+
 
 
 
@@ -231,19 +260,27 @@ function videoStart(event) {
         let rnd = Math.floor(Math.random() * (multi));
         /*Then we check if the selected channel wants to be set to a random point with randPoint = true
         and finds a random spot in the video in increments of 10mins (600s)*/
-        if (Channels[get.num].randPoint) { 
 		
-		//find a random 10 second segment withing the first 1/8 of the video + 0.5% of the video length
-            get.beginPlace = (rnd * (10/16)) + (vidLength * 0.005); 
-            /*Then we apply that value to the vidoe player via "seekTo()"*/
+		 tasteChaineClicked = JSON.parse(localStorage.getItem('tasteChaineClicked'));
+		tasteTVClicked = JSON.parse(localStorage.getItem('tasteTVClicked'));
+		if (tasteChaineClicked ||tasteTVClicked) {
+			get.beginPlace = (rnd * (10/2)) + (vidLength * 0.05);           
             player.seekTo(get.beginPlace, true);
-        } else {
-			//if random point is false then video will start 1% into the duration of the video. 
-            get.beginPlace = vidLength * 0.01; 
-            /*Then we apply that value to the vidoe player via "seekTo()"*/
-            player.seekTo(get.beginPlace, true);
-        }
 		
+		} else {			
+			if (Channels[get.num].randPoint) { 
+			
+			//find a random 10 second segment withing the first 1/8 of the video + 0.5% of the video length
+				get.beginPlace = (rnd * (10/16)) + (vidLength * 0.005); 
+				/*Then we apply that value to the vidoe player via "seekTo()"*/
+				player.seekTo(get.beginPlace, true);
+			} else {
+				//if random point is false then video will start 1% into the duration of the video. 
+				get.beginPlace = vidLength * 0.01; 
+				/*Then we apply that value to the vidoe player via "seekTo()"*/
+				player.seekTo(get.beginPlace, true);
+			}
+		}
 		
 		if (player.getPlaylistIndex() < 0){
 			
@@ -606,7 +643,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		Input.refresh(); 
     });
 	
-	 document.getElementById('Browse').addEventListener('click', function() {
+	document.getElementById('Browse').addEventListener('click', function() {
 		window.addEventListener('resize', adjustChannelsLayout);
 		adjustChannelsLayout();
 		if (Element.listDisplayDiv().style.display === "none") {
@@ -617,7 +654,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			Element.chNameDisplay().style.display = "none"; Element.channelEntry().style.display = "none"; Element.listDisplayDiv().style.display = 'none';
 		}
 		Element.controlDisplay().style.display = "none";
-    });
+    });		
 });
 
 

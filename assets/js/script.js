@@ -79,7 +79,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		document.getElementById('Subs'),
 		
 		
-		document.getElementById('Browse')
+		document.getElementById('Browse'),
+		document.getElementById('tasteChaine'),
+		document.getElementById('tasteTV')
+		
 	];
 
 
@@ -87,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const subsButton = document.getElementById('Subs');
     const subCoverButton = document.getElementById('subCover');
     const subCover2Button = document.getElementById('subCover2');
+	const subCover3Button = document.getElementById('subCover3');
 
     let subCoverState = 0; // 0: subCover visible, 1: subCover and subCover2 visible, 2: both invisible
 
@@ -99,17 +103,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     subsButton.addEventListener('click', function() {
-        subCoverState = (subCoverState + 1) % 3; // Cycle through 0, 1, 2
+        subCoverState = (subCoverState + 1) % 4; // Cycle through 0, 1, 2
 
         if (subCoverState === 0) {
             subCoverButton.style.display = 'block';
             subCover2Button.style.display = 'none';
+			subCover3Button.style.display = 'none';	
         } else if (subCoverState === 1) {
             subCoverButton.style.display = 'block';
             subCover2Button.style.display = 'block';
+			subCover3Button.style.display = 'none';				
         } else if (subCoverState === 2) {
-            subCoverButton.style.display = 'none';
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'block';
+			subCover3Button.style.display = 'block';
+        } else if (subCoverState === 3) {
+            subCoverButton.style.display = 'none';		
             subCover2Button.style.display = 'none';
+			subCover3Button.style.display = 'none';			
         }
 
         localStorage.setItem('subCoverState', subCoverState);
@@ -125,16 +136,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const storedSubCoverState = JSON.parse(localStorage.getItem('subCoverState'));
     if (storedSubCoverState === 0) {
-        subCoverButton.style.display = 'block';
-        subCover2Button.style.display = 'none';
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'none';
+			subCover3Button.style.display = 'none';	
     } else if (storedSubCoverState === 1) {
-        subCoverButton.style.display = 'block';
-        subCover2Button.style.display = 'block';
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'block';
+			subCover3Button.style.display = 'none';	
     } else if (storedSubCoverState === 2) {
-        subCoverButton.style.display = 'none';
-        subCover2Button.style.display = 'none';
+            subCoverButton.style.display = 'block';
+            subCover2Button.style.display = 'block';
+			subCover3Button.style.display = 'block';
+    } else if (storedSubCoverState === 3) {
+            subCoverButton.style.display = 'none';		
+            subCover2Button.style.display = 'none';
+			subCover3Button.style.display = 'none';	
     }
+	
+	initializeButton('tasteChaine', 'tasteChaineClicked', 'tasteTV');
+	initializeButton('tasteTV', 'tasteTVClicked', 'tasteChaine');
 });
+
+
+
+function initializeButton(buttonId, storageKey, otherButtonId) {
+    const button = document.getElementById(buttonId);
+    const otherButton = document.getElementById(otherButtonId);
+
+    button.addEventListener('click', function() {
+        if (!button.classList.contains('clicked')) {
+            button.classList.add('clicked');
+            localStorage.setItem(storageKey, true);
+        }
+
+        if (otherButton.classList.contains('clicked')) {
+            otherButton.classList.remove('clicked');
+            localStorage.setItem(otherButtonId + 'Clicked', false);
+        }
+    });
+
+    // Check local storage on page load for the button
+    const buttonClicked = JSON.parse(localStorage.getItem(storageKey));
+    if (buttonClicked) {
+        button.classList.add('clicked');
+    }
+}
+
+
+
+
+
 
 
 
