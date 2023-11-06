@@ -164,7 +164,10 @@ function initializeButton(buttonId, storageKey, otherButtonId) {
     const otherButton = document.getElementById(otherButtonId);
 
     button.addEventListener('click', function() {
-        if (!button.classList.contains('clicked')) {
+        if (button.classList.contains('clicked')) {
+            button.classList.remove('clicked');
+            localStorage.setItem(storageKey, false);
+        } else {
             button.classList.add('clicked');
             localStorage.setItem(storageKey, true);
         }
@@ -181,6 +184,8 @@ function initializeButton(buttonId, storageKey, otherButtonId) {
         button.classList.add('clicked');
     }
 }
+
+
 
 
 
