@@ -132,7 +132,7 @@ function checkVideoTime() {
   }
   
   if (tasteTVClicked) { 
-    if (timevideohasbeenon >= tasteTime || duration - currentTime <= 2) {
+    if (timevideohasbeenon >= tasteTime || duration - currentTime <= 1) {
     get.num = Math.floor(Math.random() * (Channels.length-1));
 	localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
 	localStorage.setItem('maximumVideoLength', JSON.stringify(999999999));
@@ -140,7 +140,7 @@ function checkVideoTime() {
 	}  
   }
 
-  if (duration - currentTime <= 2) {
+  if (duration - currentTime <= 1) {
     location.reload();
   }
 }
@@ -153,7 +153,7 @@ function checkVideoTime() {
 function onPlayerStateChange(event) {
 	window.focus();
   if (event.data == YT.PlayerState.PLAYING) {
-    setInterval(checkVideoTime, 500); // Check every half second
+    setInterval(checkVideoTime, 250); // Check every half second
   }
 }
 
@@ -276,7 +276,7 @@ function videoStart(event) {
 				player.seekTo(get.beginPlace, true);
 			} else {
 				//if random point is false then video will start 1% into the duration of the video. 
-				get.beginPlace = vidLength * 0.01; 
+				get.beginPlace = vidLength * 0.001; 
 				/*Then we apply that value to the vidoe player via "seekTo()"*/
 				player.seekTo(get.beginPlace, true);
 			}
