@@ -122,26 +122,28 @@ function checkVideoTime() {
   tasteChaineClicked = JSON.parse(localStorage.getItem('tasteChaineClicked'));
   let tasteTime = 60;
   
-  //console.log("timevideohasbeenon = ",timevideohasbeenon)
-  
+  console.log("timevideohasbeenon = ",timevideohasbeenon)
+  console.log("timevideohasbeenon = ",tasteTime)
   if (tasteChaineClicked) {
+	  console.log("tasteChaineClicked")
     if (timevideohasbeenon >= tasteTime) {
-    location.reload();
+    Input.refresh();
 	}
   
   }
   
   if (tasteTVClicked) { 
+  console.log("tasteTVClicked")
     if (timevideohasbeenon >= tasteTime || duration - currentTime <= 1) {
     get.num = Math.floor(Math.random() * (Channels.length-1));
 	localStorage.setItem('minimumVideoLength', JSON.stringify(0)); 
 	localStorage.setItem('maximumVideoLength', JSON.stringify(999999999));
-	Input.refresh(); 
+	Input.refresh();
 	}  
   }
 
   if (duration - currentTime <= 1) {
-    location.reload();
+    Input.refresh();
   }
 }
 
