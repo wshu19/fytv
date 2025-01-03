@@ -89,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const hideButton = document.getElementById('hide');
     const subsButton = document.getElementById('Subs');
     const subCoverButton = document.getElementById('subCover');
-    const subCover2Button = document.getElementById('subCover2');
-	const subCover3Button = document.getElementById('subCover3');
+    // const subCover2Button = document.getElementById('subCover2');
+	// const subCover3Button = document.getElementById('subCover3');
 
     let subCoverState = 0; // 0: subCover visible, 1: subCover and subCover2 visible, 2: both invisible
 
@@ -103,24 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     subsButton.addEventListener('click', function() {
-        subCoverState = (subCoverState + 1) % 4; // Cycle through 0, 1, 2
+        subCoverState = (subCoverState + 1) % 2; // Cycle through 0, 1, 2
 
         if (subCoverState === 0) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'none';
-			subCover3Button.style.display = 'none';	
+            subCoverButton.style.display = 'block';	
         } else if (subCoverState === 1) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'block';
-			subCover3Button.style.display = 'none';				
-        } else if (subCoverState === 2) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'block';
-			subCover3Button.style.display = 'block';
-        } else if (subCoverState === 3) {
-            subCoverButton.style.display = 'none';		
-            subCover2Button.style.display = 'none';
-			subCover3Button.style.display = 'none';			
+            subCoverButton.style.display = 'none';			
         }
 
         localStorage.setItem('subCoverState', subCoverState);
@@ -136,21 +124,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const storedSubCoverState = JSON.parse(localStorage.getItem('subCoverState'));
     if (storedSubCoverState === 0) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'none';
-			subCover3Button.style.display = 'none';	
+            subCoverButton.style.display = 'block';		
     } else if (storedSubCoverState === 1) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'block';
-			subCover3Button.style.display = 'none';	
-    } else if (storedSubCoverState === 2) {
-            subCoverButton.style.display = 'block';
-            subCover2Button.style.display = 'block';
-			subCover3Button.style.display = 'block';
-    } else if (storedSubCoverState === 3) {
             subCoverButton.style.display = 'none';		
-            subCover2Button.style.display = 'none';
-			subCover3Button.style.display = 'none';	
     }
 	
 	initializeButton('tasteChaine', 'tasteChaineClicked', 'tasteTV');
