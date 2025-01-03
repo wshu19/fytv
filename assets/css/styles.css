@@ -620,7 +620,7 @@ html{
 
 #subCover {
     position: absolute;
-    bottom: 0%;
+    bottom: -5%;
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 9990;
@@ -631,17 +631,17 @@ html{
 	border: 0px solid rgba(255, 255, 255, 0.1); /* Added border property with rgba color */
 } 
 
-/* #subCover2 {
+ /* #subCover2 {
     position: absolute;
     bottom: 8%;
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 99999;
-    width: 75vw; /* Adjust the width relative to viewport width */
-    height: 8vh; /* Adjust the height relative to viewport height */
+    width: 75vw; 
+    height: 8vh; 
     background-color: rgba(0, 0, 0, 1);
-	border: 1px solid rgba(255, 255, 255, 0.1); /* Added border property with rgba color */
-} */
+	border: 1px solid rgba(255, 255, 255, 0.1); 
+}  */
 
 /* #subCover3 {
     position: absolute;
@@ -649,10 +649,10 @@ html{
     left: 50%;
     transform: translate(-50%, 0%);
     z-index: 99999;
-    width: 75vw; /* Adjust the width relative to viewport width */
-    height: 8vh; /* Adjust the height relative to viewport height */
+    width: 75vw; 
+    height: 8vh; 
     background-color: rgba(0, 0, 0, 1);
-	border: 1px solid rgba(255, 255, 255, 0.1); /* Added border property with rgba color */
+	border: 1px solid rgba(255, 255, 255, 0.1); 
 } */
 
 #time-remaining {
