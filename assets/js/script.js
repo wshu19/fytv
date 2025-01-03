@@ -89,8 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const hideButton = document.getElementById('hide');
     const subsButton = document.getElementById('Subs');
     const subCoverButton = document.getElementById('subCover');
-    // const subCover2Button = document.getElementById('subCover2');
-	// const subCover3Button = document.getElementById('subCover3');
 
     let subCoverState = 0; // 0: subCover visible, 1: subCover and subCover2 visible, 2: both invisible
 
