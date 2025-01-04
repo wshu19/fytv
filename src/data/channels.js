@@ -9,4 +9,7 @@ const Channels = [ { name: "01 - Asmr", 	list: ['PLsroHyBeizLk_ZWOv9UuwSVM75MXwf
 { name: "09 - manga E1 HQ", 	list: ['PLsroHyBeizLmkZaHlqISC86CdJfmA8ihR'], 	episodes: [46], 	randPoint: 1 },
 { name: "10 - Squeezie", 	list: ['PLTYUE9O6WCrjvZmJp2fXTWOgypGvByxMv','PLTYUE9O6WCriFqz8Nf3KN75Q3EuU0Wa1R','PLTYUE9O6WCrhC4dZLSfjOBsZ0hBuVQppn','PLi_3gSO-vvFYy46hpizd08gTPkEA1ibRx','PLi_3gSO-vvFbfWdQOmZ0vUq5l0A3qNHE3','PLTYUE9O6WCriLgECNb4zJUb-1IDHhdcJO','PLoN2SQ6mWonKJolJgePvo8fcpoYjS_rY9'], 	episodes: [54,77,11,20,16,15,22], 	randPoint: 1 },
 { name: "11 - Findings", 	list: ['PLjOr2GKM_jDzKHbJWr-YvLstifN6jc6hh'], 	episodes: [109], 	randPoint: 1 },
-{ name: "12 - manga E1 MQ", 	list: ['PLsroHyBeizLnRdl9FiTEsuBwa3sxSeYXE'], 	episodes: [40], 	randPoint: 1 }]
+{ name: "12 - manga E1 MQ", 	list: ['PLsroHyBeizLnRdl9FiTEsuBwa3sxSeYXE'], 	episodes: [40], 	randPoint: 1 },
+{ name: "13 - Stand Up", 	list: ['PLsroHyBeizLn9wao5Hlzl97gag005l7di'], 	episodes: [17], 	randPoint: 1 },
+{ name: "14 - Montreux Comedy", 	list: ['PLE2tfoAKAJ6y2fCR8GepOV8Ow-XkFl_Ri'], 	episodes: [200], 	randPoint: 1 },
+{ name: "15 - Haroun", 	list: ['PLaVSOh9o4rWhWuEwWCgLSKZUNdePVn9lr'], 	episodes: [26], 	randPoint: 1 }]
